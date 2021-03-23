@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "docz-example-typescript",
+  "version": "2.0.0-rc.41",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "doczrc.js",
+    "tsconfig.json",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "(trap 'kill 0' SIGINT; yarn run docz:dev & yarn run type:dev)",
+    "docz:dev": "docz dev",
+    "build": "yarn run generate && docz build",
+    "serve": "docz serve",
+    "generate": "typedoc --options ./typedoc.json"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "typedoc": "^0.20.33",
+    "typedoc-plugin-markdown": "^3.6.0",
+    "docz": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "universal-console": "^0.1.3"
+  }
+}

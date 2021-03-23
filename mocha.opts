@@ -1,0 +1,5 @@
+--reporter spec
+--require source-map-support/register
+--recursive
+--exit
+

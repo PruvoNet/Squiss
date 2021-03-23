@@ -1,6 +1,4 @@
 {
     "extends": "@istanbuljs/nyc-config-typescript",
-    "exclude": ["src/test/**"],
-    "sourceMap": false,
-    "produce-source-map": false
+    "exclude": ["packages/*/src/test/**", "mocha-setup.ts"]
 }

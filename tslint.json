@@ -47,7 +47,7 @@
   "rulesDirectory": [],
   "linterOptions": {
     "exclude": [
-      "dist/**"
+      "lib/**"
     ]
   }
 }

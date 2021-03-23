@@ -6,29 +6,33 @@
     "declaration": true,
     "checkJs": false,
     "allowJs": false,
-    "outDir": "./dist",
     "strict": true,
+    "baseUrl": "packages",
+    "removeComments": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noImplicitReturns": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": false,
     "strictFunctionTypes": true,
     "alwaysStrict": true,
     "noImplicitUseStrict": false,
+    "declarationMap": true,
     "preserveSymlinks": true,
-    "rootDir": "src",
     "sourceMap": true,
     "lib": [
       "es6",
       "dom"
     ]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
   "exclude": [
-    "dist"
-  ]
+    "mocha-setup.ts",
+    "node_modules"
+  ],
+  "paths": {
+    "@squiss/*": [
+      "./packages/*/src"
+    ]
+  }
 }

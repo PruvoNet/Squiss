@@ -1,0 +1,57 @@
+{
+  "name": "@squiss/squiss-ts-bc",
+  "version": "0.0.1",
+  "description": "High-volume SQS poller",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "engines": {
+    "node": "^10 || ^12 || ^14 || ^15"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "clean": "rm -rf lib .nyc_output *.log coverage",
+    "build": "yarn lint && yarn compile",
+    "build:fresh": "yarn clean && yarn build",
+    "test": "yarn lint && yarn test:cover",
+    "test:unit": "mocha --opts ../../mocha.opts --require ts-node/register --require ../../mocha-setup.ts",
+    "test:cover": "nyc --reporter=lcov --reporter=text-summary yarn test:unit",
+    "lint": "tslint -c ../../tslint.json 'src/**/*.ts' 'test/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PruvoNet/squiss-ts.git"
+  },
+  "files": [
+    "/lib/*.d.ts",
+    "/lib/*.js"
+  ],
+  "keywords": [
+    "aws",
+    "amazon",
+    "sqs",
+    "polling",
+    "poll",
+    "poller",
+    "queue",
+    "typescript",
+    "sns",
+    "s3",
+    "extended",
+    "client",
+    "sdk"
+  ],
+  "author": "Regev Brody <regevbr@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PruvoNet/squiss-ts/issues"
+  },
+  "homepage": "https://github.com/PruvoNet/squiss-ts#readme",
+  "dependencies": {
+    "@squiss/core": "^0.0.1",
+    "aws-sdk": "^2.866.0",
+    "ts-type-guards": "^0.7.0",
+    "iltorb": "2.4.3"
+  },
+  "devDependencies": {
+  }
+}

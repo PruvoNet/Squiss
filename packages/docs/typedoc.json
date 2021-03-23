@@ -1,0 +1,16 @@
+{
+  "entryPoints": [
+    "../squiss-ts/src/index.ts",
+    "../squiss-ts-bc/src/index.ts"
+  ],
+  "tsconfig": "../../tsconfig.json",
+  "out": "src/api",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "name": "Squiss-TS",
+  "includeVersion": false,
+  "readme": "none",
+  "hideGenerator": true,
+  "plugin": "typedoc-plugin-markdown"
+}
