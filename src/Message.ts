@@ -21,6 +21,7 @@ export interface IMessageOpts {
 }
 
 interface SNSBody {
+    MessageAttributes: string;
     Message?: string;
     Subject: string;
     TopicArn: string;
@@ -73,18 +74,19 @@ export class Message extends (EventEmitter as new() => MessageEmitter) {
         this._opts = opts;
         this.raw = opts.msg;
         this.body = opts.msg.Body;
+        this.attributes = parseMessageAttributes(opts.msg.MessageAttributes);
         if (opts.unwrapSns) {
             const unwrapped: SNSBody = JSON.parse(this.body || EMPTY_BODY);
             this.body = unwrapped.Message;
             this.subject = unwrapped.Subject;
             this.topicArn = unwrapped.TopicArn;
+            this.attributes = parseMessageAttributes(unwrapped.MessageAttributes);
             if (this.topicArn) {
                 this.topicName = unwrapped.TopicArn.substr(unwrapped.TopicArn.lastIndexOf(':') + 1);
             }
         }
         this._squiss = opts.squiss;
         this._handled = false;
-        this.attributes = parseMessageAttributes(opts.msg.MessageAttributes);
         this.sqsAttributes = opts.msg.Attributes || {};
         this._s3Retriever = opts.s3Retriever;
         this._s3Retain = opts.s3Retain;

@@ -27,8 +27,8 @@ export const parseMessageAttributes = (messageAttributes: SQS.MessageBodyAttribu
 };
 
 const parseAttributeValue = (unparsedAttribute: SQS.MessageAttributeValue): IMessageAttribute => {
-  const type = unparsedAttribute.DataType;
-  const stringValue = unparsedAttribute.StringValue;
+  const type = unparsedAttribute.DataType || unparsedAttribute.Type;
+  const stringValue = unparsedAttribute.StringValue || unparsedAttribute.Value;
   const binaryValue = unparsedAttribute.BinaryValue;
 
   switch (type) {
